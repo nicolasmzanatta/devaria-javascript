@@ -5,7 +5,7 @@ function numeroAleatorio() {
 numeroAleatorio();
 numeroAleatorio();
 
-const olaMundo = () => {           //criando uma funçao ola mundo
+const olaMundo = () => {           //criando uma arrow function 
     console.log("ola mundo");
 }
 
