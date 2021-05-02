@@ -10,7 +10,7 @@ const olaMundo = () => {           //criando uma arrow function
 }
 
 olaMundo();    //aq usou a funçao q acabou de criar 
-
+ 
 function soma(numero1, numero2) {    //criando uma funçao de soma) 
     return numero1 + numero2;
 }
@@ -18,7 +18,9 @@ function soma(numero1, numero2) {    //criando uma funçao de soma)
 const primeiraSoma = soma(1, 3);      //usando a funçao de soma
 const segundaSoma = soma(6, 7);
 
-console.log({            //um outro jeito de exibiçao 
+console.log({            //um outro jeito de exibiçao, ele vai imprimir no console o valor e o nome das variáveis  
     primeiraSoma,
     segundaSoma
 });
+
+console.log(primeiraSoma, segundaSoma);
