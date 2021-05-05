@@ -1,8 +1,8 @@
 const readline = require('readline');   //o readline em verde poderia ser qualquer nome, por convençao sempre usa o nome do modulo q estamos importando  
 
 const leitor = readline.createInterface({
-    input: process.stdin,    //stdin entrada padrao: no caso nosso teclado 
-    output: process.stdout   //stdout q no nosso caso é o proprio terminal 
+    input: process.stdin,    //stdin entrada padrao do SO, no caso nosso teclado 
+    output: process.stdout   //stdout saída padrao do SO, q no nosso caso é o proprio terminal 
 });
 
 const primeiraPergunta = 'Digite o primeiro número:\n';
