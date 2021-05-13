@@ -1,11 +1,18 @@
 const readline = require('readline'); //o require serve pra importar o modulo 
+const Produto = require('./Produto');
 
 const leitor = readline.createInterface({    //na interface ele espera um objeto como parâmetro, entao {}
     input: process.stdin, //entrada padrao do sistema, no caso nosso teclado,                sintaxe do objeto - nome da propriedade(input), " : ", e o valor (process.stdin)
     output: process.stdout
 });
 
-const produtosMercado = ["feijão", "arroz", "melancia", "suco", "alface"];
+const produtosMercado = [
+    new Produto ("feijão", 5), 
+    new Produto ("arroz", 10.50),
+    new Produto ("melancia", 2), 
+    new Produto ("suco", 10), 
+    new Produto ("alface", 3)
+];
 
 const validarLista = (listaMercado) => {                 
     if(!listaMercado) {     // o unario !, ja vai verificar se a lista é uma string vazia , se ela é false, null ou undefined...
@@ -28,8 +35,10 @@ const obterDisponibilidade = (listaValida) => {
 
     for (const item of listaValida) {
         const itemFormatado = item.trim().toLowerCase();     //trim tira os espaços, e toLowerCase transforma toda string em letra minuscula 
-        if (produtosMercado.includes(itemFormatado)) {
-            produtosDisponiveis.push(itemFormatado);
+        const produto = produtosMercado.find(produtoMercado => produtoMercado.nome === itemFormatado);   //o find ele busca por somente uma correspondencia, a primeira q ele achar 
+        
+        if (produto) {
+            produtosDisponiveis.push(produto);
         } else {
             produtosIndisponiveis.push(itemFormatado);
         }
@@ -42,7 +51,7 @@ const obterDisponibilidade = (listaValida) => {
 }
 
 leitor
-    .question(
+    .question(                      
         "Digite a lista de produtos separado por vírgula:\n",
         (listaProdutos) => {                  //como nessa funçao só tem 1 argumento o parenteses passa ser opcional 
             try {
@@ -52,7 +61,7 @@ leitor
                 console.log('Os seguintes produtos estão disponíveis', disponibilidade.produtosDisponiveis);
                 console.log('Os seguintes produtos estão indisponíveis', disponibilidade.produtosIndisponiveis);
 
-                const disponiveisOrdenados = disponibilidade.produtosDisponiveis.sort((produto1, produto2) => produto1.localeCompare(produto2));
+                const disponiveisOrdenados = disponibilidade.produtosDisponiveis.sort((produto1, produto2) => produto1.nome.localeCompare(produto2.nome));
 
                 console.log('Produtos disponíveis ordenados alfabeticamente', disponiveisOrdenados);
             } catch (e) {
