@@ -34,7 +34,7 @@ if (!animalSelecionado) {
 }
 
 // identificar a qual grupo o animal pertence
-if (animalSelecionado instanceof Mamifero) {
+if (animalSelecionado instanceof Mamifero) {                     //instanceof verifica se o objeto da esquerda é uma instancia da classe da direita
     // exibir os dados genericos e exclusivos do animal
     console.log(
         'O animal encontrado é um mamifero com nome',
