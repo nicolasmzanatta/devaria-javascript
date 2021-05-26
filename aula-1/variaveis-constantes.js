@@ -1,4 +1,4 @@
-var cor = "branca";
+var cor = "azul";
 let nome = "Douglas";
 const empresa = "Devaria"; 
 
